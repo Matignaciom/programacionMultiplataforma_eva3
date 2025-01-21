@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Listado de Productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="productos.length > 0; else noProductos">
+    <ion-item *ngFor="let producto of productos">
+      <ion-label>
+        <h2>{{ producto.nombre }}</h2>
+        <p>Precio: {{ producto.precio | currency }}</p>
+        <p>Categoría: {{ producto.categoria }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #noProductos>
+    <ion-text color="medium">
+      <p class="ion-text-center">No hay productos disponibles.</p>
+    </ion-text>
+  </ng-template>
+</ion-content>
